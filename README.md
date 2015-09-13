@@ -13,25 +13,33 @@ React native library for low level interaction with API for HTTP, such as manual
 let rawHttp = require('react-native-raw-http')
 
 // Assume server http://example.com returns HTTP 302 Redirect to https://example.com/404
-rawHttp('http://example.com',{autoRedirect:false,cookieHandled:null},(err,headers,resp) => {
+rawHttp('http://example.com',{autoRedirect:false},(err,code,headers,resp,cookies,location) => {
    console.log(`error: ${err} \n
+                code: ${code} \n
                 headers: ${headers} \n
+                cookies: ${cookies} \n
+                location: ${location} \n
                 resp: ${resp}`)
 })
 
 /* Outputs first when headers got received:
-  error: null,
-  headers: { "Status": 302,        // Notice that status code returned as a separate field
-             "Content-Length":0,
-             "Set-Cookie": "testCookie=true", // Set-Cookies is just a header
+  error: null
+  code: 302
+  headers: { "Content-Length":0,
+             "Set-Cookie": "testCookie=true",
              "Location":"http://example.com/404" }
+  cookies: "testCookie=true"
+  location: "http://example.com/404"
   resp: null
 
   //Callback got called second time with body received
   error: null,
+  code: 302,
   headers: { "Status": 302,
              "Content-Length":0,
              "Location":"http://example.com/404" },
+  cookies: ["testCookie=true"]
+  location: "http://example.com/404"             
   resp: "" // Server returned empty text
 */
 
@@ -43,6 +51,7 @@ rawHttp('http://example.com',{autoRedirect:false,cookieHandled:null},(err,header
 - `(string)url` - is url to request
 - `(object)options` is a object which can have following properties:
   - `(string)method` - Http method like `GET`,`POST`
+  - `(object)headers` - Request headers
+  - `(string)body` - Request body
   - `(bool)autoRedirects` - when set to `true` automatically follows redirect
-  - `(function(cookies,headers,url))cookieHandler` - functions which will be called when server reterned `Set-Cookie` header. Function will be called with list of cookies, headers and url of the request
-- `(function(err,headers,resp))cb` - callback which will be called separatly for each received HTTP headers and HTTP body. If `autoRedirects` set to true callback will be called for new location headers and body as well
+- `(function(err,headers,resp,cookies,location))cb` - callback which will be called separatly for each received HTTP headers and HTTP body. If `autoRedirects` set to true callback will be called for new location headers and body as well
