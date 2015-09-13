@@ -1,0 +1,10 @@
+PODS:
+  - React/Core (0.9.0)
+
+DEPENDENCIES:
+  - React/Core (= 0.9.0)
+
+SPEC CHECKSUMS:
+  React: 3185f1ac0c06c80714ddab5b4e4c51d2519dee88
+
+COCOAPODS: 0.36.0.beta.1

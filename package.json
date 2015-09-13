@@ -1,0 +1,23 @@
+{
+  "name": "react-native-raw-http",
+  "version": "0.0.1",
+  "description": "React native library for low level interaction with API for HTTP, such as manual redirect handling and manual cookie management",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/artemyarulin/react-native-raw-http.git"
+  },
+  "keywords": [
+    "react-native",
+    "ios"
+  ],
+  "author": "Artem Yarulin <artem.yarulin@fessguid.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/artemyarulin/react-native-raw-http/issues"
+  },
+  "homepage": "https://github.com/artemyarulin/react-native-raw-http#readme"
+}
