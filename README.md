@@ -1,6 +1,9 @@
 # react-native-raw-http
 React native library for low level interaction with API for HTTP, such as manual redirect handling and manual cookie management
 
+# Status
+Work in progress, not finished. Currently I'm a bit busy with different things, altough the time would come and I'll finilize this lib
+
 # Why
 `react-native` team decied to follow as close as possible `XMLHTTPRequest` and `fetch` API for all network requests. While it is a good idea and brings a lot of existing `JavaScript` library to `react-native` world there are a set of limitation because of it:
 
